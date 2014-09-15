@@ -7,16 +7,6 @@ $rawurl = $_POST["mpc-url"];
 $wpurl = site_url();
 $parsedwpurl = parse_url($wpurl);
 
-if (file_exists(ABSPATH . $w3tc_location)) {
-    echo ("<p>You are using W3 Total Cache.</p>");
-}
-elseif (file_exists(ABSPATH . $supercache_location)) {
-		echo ("<p>You are using WP Super Cache.</p>");
-}
-else {
-    echo ("<p>You seem to not have either W3 Total Cache or Super Cache installed</p>");
-}
-
 if (isset($_POST["mpc-url"])) {
 ?>
 <div id="message" class="updated">
@@ -77,6 +67,17 @@ if (isset($_POST["mpc-url"])) {
 ?>
 <div class="wrap">
 	<h2><?php echo __("Manual purge cache", "mpc") ?></h2>
+<?php
+if (file_exists(ABSPATH . $w3tc_location)) {
+		echo ("<p>You are using W3 Total Cache.</p>");
+}
+elseif (file_exists(ABSPATH . $supercache_location)) {
+		echo ("<p>You are using WP Super Cache.</p>");
+}
+else {
+		echo ("<p>You seem to not have either W3 Total Cache or Super Cache installed</p>");
+}
+?>
 	<form method="post" action="<?php echo str_replace( '%7E', '~', $_SERVER['REQUEST_URI']); ?>">
 		<table class="form-table">
 			<tr valign="top">
