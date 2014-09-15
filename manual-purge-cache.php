@@ -2,9 +2,21 @@
 
 // Configuration
 $w3tc_location = "wp-content/cache/page_enhanced/";
+$supercache_location = "wp-content/cache/supercache/";
 $rawurl = $_POST["mpc-url"];
 $wpurl = site_url();
 $parsedwpurl = parse_url($wpurl);
+
+if (file_exists(ABSPATH . $w3tc_location)) {
+    echo "You are using W3 Total Cache";
+}
+elseif (file_exists(ABSPATH . $supercache_location)) {
+		echo "You are using WP Super Cache";
+}
+else {
+    echo "You seem to not have either W3 Total Cache or Super Cache installed";
+}
+
 if (isset($_POST["mpc-url"])) {
 ?>
 <div id="message" class="updated">
