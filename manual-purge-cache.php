@@ -89,7 +89,7 @@ else {
 			</tr>
 		</table>
 		<p class="submit">
-			<input type="submit" name="submit" id="submit" class="button button-primary" value="Purge cached page"  />
+			<input type="submit" name="submit" id="submit" class="button button-primary" value="Purge cached page" />
 		</p>
 	</form>
 </div>
