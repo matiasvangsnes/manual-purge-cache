@@ -8,13 +8,13 @@ $wpurl = site_url();
 $parsedwpurl = parse_url($wpurl);
 
 if (file_exists(ABSPATH . $w3tc_location)) {
-    echo "You are using W3 Total Cache";
+    echo ("<p>You are using W3 Total Cache.</p>");
 }
 elseif (file_exists(ABSPATH . $supercache_location)) {
-		echo "You are using WP Super Cache";
+		echo ("<p>You are using WP Super Cache.</p>");
 }
 else {
-    echo "You seem to not have either W3 Total Cache or Super Cache installed";
+    echo ("<p>You seem to not have either W3 Total Cache or Super Cache installed</p>");
 }
 
 if (isset($_POST["mpc-url"])) {
