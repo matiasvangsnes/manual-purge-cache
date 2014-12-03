@@ -17,10 +17,7 @@ function mpc_front_end() {
     if (is_user_logged_in()) {
       echo '<div class="mpc-frontend-wrapper">';
       $response = mpc_purge_cache($_GET['mpc-clear-url']);
-      error_log('ok');
-      error_log(print_r($response,1));
       if ( ! empty($response)) {
-        error_log('response: '.$response);
         echo '<script type="text/javascript">alert("'.strip_tags(str_replace('</p>', '\n', $response)).'");</script>';
       }
       echo '</div>';
