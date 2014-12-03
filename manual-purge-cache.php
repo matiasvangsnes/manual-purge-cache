@@ -1,16 +1,9 @@
 <?php
-
-// Configuration
-define('W3TC_LOCATION', 'wp-content/cache/page_enhanced/');
-define('SUPERCACHE_LOCATION', 'wp-content/cache/supercache/');
-$rawurl = $_POST["mpc-url"];
-
 if (isset($_POST["mpc-url"])) {
+  $rawurl = $_POST['mpc-url'];
 ?>
 <div id="message" class="updated">
-<?php
-	mpc_purge_cache($rawurl);
-?>
+<?php echo mpc_purge_cache($rawurl); ?>
 </div>
 <?php
 }
@@ -19,13 +12,11 @@ if (isset($_POST["mpc-url"])) {
 	<h2><?php echo __("Manual purge cache", "mpc") ?></h2>
 <?php
 if (file_exists(ABSPATH . W3TC_LOCATION)) {
-		echo ("<p>You are using W3 Total Cache.</p>");
-}
-elseif (file_exists(ABSPATH . SUPERCACHE_LOCATION)) {
-		echo ("<p>You are using WP Super Cache.</p>");
-}
-else {
-		echo ("<p>You seem to not have either W3 Total Cache or Super Cache installed</p>");
+  echo "<p>You are using W3 Total Cache.</p>";
+} elseif (file_exists(ABSPATH . SUPERCACHE_LOCATION)) {
+  echo "<p>You are using WP Super Cache.</p>";
+} else {
+  echo "<p>You seem to not have either W3 Total Cache or Super Cache installed</p>";
 }
 ?>
 	<form method="post" action="<?php echo str_replace( '%7E', '~', $_SERVER['REQUEST_URI']); ?>">
